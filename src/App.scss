@@ -1,0 +1,96 @@
+.App {
+  text-align: center;
+  padding: 2em;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search {
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 5px;
+  input {
+    border-radius: 5px;
+    padding: 0.3em;
+    width: 10em;
+    font-size: 14pt;
+  }
+}
+
+.container {
+  margin: 20px 0;
+}
+.search-avatar__container {
+  display: flex;
+    text-align: start;
+    padding: 1em;
+  &:nth-child(odd) {
+    background-color: #F5F5F5;
+  }
+
+  
+}
+.search-avatar {
+  display: inline;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 15px;
+  border: 1px solid darkgray;
+  border-radius: 50px;
+}
+.contirbuters__container {
+  width: 80vw;
+  margin: 4em auto;
+}
+
+.avatars__list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 85%;
+  padding: 1em 0;
+}
+
+.repoName {
+  width: 14%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 30px 0;
+  font-weight: 500;
+}
+
+.userName--repo {
+  background-color: gainsboro;
+  display: flex;
+  padding: 1em;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 1em 0.5em;
+}
