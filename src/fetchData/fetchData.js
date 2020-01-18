@@ -15,9 +15,12 @@ const getRepos = async (userName) => {
 const getContributors = async (userName, repoName) => {
     try {
         const response = await fetch(`https://api.github.com/repos/${userName}/${repoName}/contributors`);
-        if (response && response.status === 404) {
+        if (response.status === 404) {
             console.error('Resouce not found');
             return []
+        }
+        if (response.statusText === 'No Content') {
+            return [];
         }
         const json = await response.json() || [];
         return { repoName, contributors: json };
