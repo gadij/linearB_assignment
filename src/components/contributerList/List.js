@@ -9,7 +9,10 @@ export default function ContirbutersList({ data }) {
                         <span className='repoName'>{repoData.repoName}</span>
                         <span className='avatars__list'>
                             {
-                                repoData && repoData.contributors.map(contributor => {
+                                repoData
+                                && repoData.contributors
+                                && repoData.contributors.length > 0
+                                && repoData.contributors.map(contributor => {
                                     return (<img className='search-avatar' alt='avatar' key={index} src={contributor.avatar_url} />)
                                 })
                             }
