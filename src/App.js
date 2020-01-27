@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import useSearchContributors from "./components/search/hooks/useSearchContributors";
 import useSearchRepo from "./components/search/hooks/useSearchRepo";
-import useExtractNameAndOwner from './components/search/hooks/useExtractNameAndOwner';
+import { getOwnerAndRepoName } from './utils/dataManipulation'
 import Search from "./components/search/Search";
 import ContributersList from './components/contributerList/List'
 
@@ -11,12 +11,16 @@ import './App.scss';
 export default function App() {
   const [query, setQuery] = useState('')
   const [repos] = useSearchRepo(query);
-  const [repoNamesAndOwner] = useExtractNameAndOwner(repos)
+  let [repoNamesAndOwner, setRepoNamesAndOwner] = useState([]);
   const [contributorsByRepoName] = useSearchContributors(repoNamesAndOwner);
 
   const callBack = useCallback((value) => {
     setQuery(value);
   }, [setQuery])
+
+  useEffect(() => {
+    setRepoNamesAndOwner(getOwnerAndRepoName(repos))
+  }, [repos])
 
   return (
     <div className="App">
